@@ -1,0 +1,28 @@
+streamlit run "C:\Users\Nitesh\OneDrive\Desktop\SPCOE\data Science ppt\DS Project\Multiple Diasese Prediction System\Multiple_diases_prediction.py"
+
+
+
+
+if st.button('Diabetes Test Result'):
+
+        input_data = [[
+            float(Pregnancies),
+            float(Glucose),
+            float(BloodPressure),
+            float(SkinThickness),
+            float(Insulin),
+            float(BMI),
+            float(DiabetesPedigreeFunction),
+            float(Age)
+            ]]
+
+    Diab_Prediction = diabetes_model.predict(input_data)
+
+    st.write("Prediction:", Diab_Prediction)
+
+    if Diab_Prediction[0] == 1:
+        diab_diagnosis = 'The Person is Diabetic'
+    else:
+        diab_diagnosis = 'The Person is not Diabetic'
+
+    st.success(diab_diagnosis)
